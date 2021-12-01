@@ -33,20 +33,3 @@ fetch("https://newsapi.org/v2/top-headlines?country=id&apiKey=f6527bfa24054bd081
         news.innerHTML = newsData;
       }
     }
-
-const searchButton = document.querySelector(".search-button");
-searchButton.addEventListener("click", function() {
-  
-  const inputKeyword = document.querySelector(".input-keyword");
-  fetch("https://newsapi.org/v2/everything?q=id&from=2021-11-30&to=2021-11-30&sortBy=popularity&apiKey=f6527bfa24054bd08123fcd4fc298f5b" + inputKeyword.value)
-  .then(response => response.json())
-  .then(response => {
-    const news = response.Search;
-    let newsData = "";
-    news?.forEach(n => newsData += displaynewsData(n));
-    const searchCoantainer = document.querySelector('.search-container');
-    searchCoantainer.innerHTML = newsData;
-
-  });
-
-});
